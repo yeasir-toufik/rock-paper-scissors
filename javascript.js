@@ -21,22 +21,17 @@ function getComputerChoice(){
 
 }
 
-// let comChoice= getComputerChoice();
-// console.log(comChoice);
 
 
 
-function getHumanChoice(){
-    let choice= prompt("Input your choice");
-    choice=choice.toUpperCase();
-    return choice; 
-}
 
-// let userChoice= getHumanChoice();
+// function getHumanChoice(){
+//     let choice= prompt("Input your choice");
+//     choice=choice.toUpperCase();
+//     return choice; 
+// }
 
-// userChoice=userChoice.toUpperCase();
 
-// console.log(userChoice);
 
 
 
@@ -46,11 +41,12 @@ let humanScore=0;
 let computerScore=0;
 
 
-function playGame(){
+function playGame(playerClick){
 
      
-
-    const humanSelection = getHumanChoice();
+    let humanSelection=playerClick;
+    humanSelection=humanSelection.toUpperCase();
+    //const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
 
 
@@ -61,6 +57,11 @@ function playGame(){
 
 
     function playRound(humanChoice,computerChoice){
+
+
+
+
+
 
         if((humanChoice==="ROCK" && computerChoice==="rock")||(humanChoice==="PAPER" && computerChoice==="paper")||(humanChoice==="SCISSORS" && computerChoice==="scissors")){
             console.log("Match Draw.");
@@ -87,6 +88,19 @@ function playGame(){
     
         }
     }
+    let currentResult = document.querySelector("#currentResult");
+    let para=document.createElement("p");
+    para.textContent=`Current Result is: Human score is ${humanScore} and computer score is ${computerScore}`;
+    currentResult.appendChild(para);
+
+
+
+   
+
+  
+
+
+
      return score;
 
 
@@ -94,33 +108,177 @@ function playGame(){
 
 }
 
-const game1= playGame();
-console.log(game1);
-const game2= playGame();
-console.log(game2);
-const game3= playGame();
-console.log(game3);
-const game4= playGame();
-console.log(game4);
-const game5= playGame();
-console.log(game5);
 
+let btn = document.querySelector('#rock');
+
+btn.addEventListener('click',(event) => {
+    let game1=playGame("rock");
+    if ((humanScore || computerScore) >= 5)
+        {
+        
+        if ( humanScore> computerScore){
+        
+         
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Human wins!";
+            currentResult.appendChild(para1);
+        
+        }
+        
+        else if (computerScore> humanScore){
+        
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Computer wins!";
+            currentResult.appendChild(para1);
+        
+        }
+        
+        else if (computerScore == humanScore) {
+            
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Draw!";
+            currentResult.appendChild(para1);
+             
+        }
+        else {
+        
+        }
+        
+        }
+
+});
+
+
+let btn1 = document.querySelector('#paper');
+
+btn1.addEventListener('click',(event) => {
+   
+    let game1=playGame("paper");
+    if ((humanScore || computerScore) >= 5)
+        {
+        
+        if ( humanScore> computerScore){
+        
+         
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Human wins!";
+            currentResult.appendChild(para1);
+        
+        }
+        
+        else if (computerScore> humanScore){
+        
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Computer wins!";
+            currentResult.appendChild(para1);
+        
+        }
+        
+        else if (computerScore == humanScore) {
+            
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Draw!";
+            currentResult.appendChild(para1);
+             
+        }
+        else {
+        
+        }
+        
+        }
+
+
+});
+
+let btn2 = document.querySelector('#scissors');
+
+btn2.addEventListener('click',(event) => {
+    
+    let game1=playGame("scissors");
+    if ((humanScore || computerScore) >= 5)
+        {
+        
+        if ( humanScore> computerScore){
+        
+         
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Human wins!";
+            currentResult.appendChild(para1);
+        
+        }
+        
+        else if (computerScore> humanScore){
+        
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Computer wins!";
+            currentResult.appendChild(para1);
+        
+        }
+        
+        else if (computerScore == humanScore) {
+            
+            let para1=document.createElement("h1");
+            para1.textContent= "Match finish. Draw!";
+            currentResult.appendChild(para1);
+             
+        }
+        else {
+        
+        }
+        
+        }
+
+    
+});
+
+
+
+
+
+
+// const game1= playGame();
+// console.log(game1);
+// const game2= playGame();
+// console.log(game2);
+// const game3= playGame();
+// console.log(game3);
+// const game4= playGame();
+// console.log(game4);
+// const game5= playGame();
+// console.log(game5);
+
+
+
+
+if (humanScore || computerScore >= 5)
+{
 
 if ( humanScore> computerScore){
 
-    console.log("human win");
+ 
+    let para1=document.createElement("h1");
+    para1.textContent= "Match finish. Human wins!";
+    currentResult.appendChild(para1);
 
 }
 
 else if (computerScore> humanScore){
-    console.log("computer win");
+
+    let para1=document.createElement("h1");
+    para1.textContent= "Match finish. Computer wins!";
+    currentResult.appendChild(para1);
+
 }
 
-else{
-    console.log("Draw");
+else if (computerScore == humanScore) {
+
+    let para1=document.createElement("h1");
+    para1.textContent= "Match finish. Draw!";
+    currentResult.appendChild(para1);
+     
+}
+else {
+
 }
 
-
-
-
-
+}
